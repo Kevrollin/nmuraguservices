@@ -1,0 +1,123 @@
+.reviews__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.reviews__content {
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.reviews__lead {
+  max-width: 30em;
+  margin-top: 20px;
+}
+
+.reviews__cta {
+  margin-top: 36px;
+}
+
+.reviews__score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 5vw, 64px);
+  border-left: 1px solid var(--line);
+  background: var(--white);
+}
+
+.reviews__figure {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 3.5rem + 3vw, 6.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--navy);
+}
+
+.reviews__figure span {
+  margin-left: 6px;
+  font-size: 0.32em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--slate);
+}
+
+.reviews__stars {
+  margin-top: 22px;
+  gap: 4px;
+}
+
+.reviews__count {
+  margin-top: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-small);
+  color: var(--text);
+}
+
+.reviews__count strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.reviews__asof {
+  margin-top: 14px;
+  font-size: var(--fs-xs);
+  color: var(--slate);
+}
+
+/* Optional genuine review excerpts */
+.excerpts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.excerpt {
+  padding: 28px;
+  border-top: 1.5px solid var(--navy);
+  background: var(--paper);
+}
+
+.excerpt__quote p {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--navy);
+}
+
+.excerpt__meta {
+  display: grid;
+  margin-top: 16px;
+  font-size: var(--fs-xs);
+  color: var(--slate);
+}
+
+.excerpt__author {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+@media (max-width: 859px) {
+  .reviews__panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reviews__score {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 539px) {
+  .reviews__cta {
+    width: 100%;
+  }
+}

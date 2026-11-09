@@ -1,0 +1,102 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(40px, 7vw, 112px);
+  align-items: start;
+}
+
+.about__head {
+  position: sticky;
+  top: calc(var(--header-h) + 40px);
+}
+
+.about__copy {
+  display: grid;
+  gap: 20px;
+  max-width: 36em;
+}
+
+.about__copy .lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.012em;
+  color: var(--navy);
+}
+
+/* "At a glance" table, styled like a ledger: heavy top rule, hairline rows,
+   and the double rule that closes a set of accounts. */
+.ledger {
+  margin-top: clamp(40px, 5vw, 56px);
+}
+
+.ledger__caption {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.ledger__rows {
+  position: relative;
+  padding-bottom: 6px;
+  border-top: 1.5px solid var(--navy);
+}
+
+/* Double rule */
+.ledger__rows::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  border-block: 1px solid var(--gold);
+}
+
+.ledger__row {
+  display: grid;
+  grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ledger__row:last-child {
+  border-bottom: 0;
+}
+
+.ledger__row dt {
+  font-size: var(--fs-small);
+  color: var(--slate);
+}
+
+.ledger__row dd {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+@media (max-width: 959px) {
+  .about__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .about__head {
+    position: static;
+  }
+}
+
+@media (max-width: 479px) {
+  .ledger__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}

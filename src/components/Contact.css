@@ -1,0 +1,293 @@
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.contact__lead {
+  max-width: 28em;
+  margin-top: 20px;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.contact__details {
+  margin-top: 48px;
+  border-top: 1.5px solid var(--navy);
+}
+
+.contact__detail {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  grid-template-areas:
+    'icon label'
+    'icon value';
+  column-gap: 16px;
+  align-items: center;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact__detail-icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--paper-deep);
+  color: var(--navy);
+}
+
+.contact__detail-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact__detail-label {
+  grid-area: label;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+}
+
+.contact__detail-value {
+  grid-area: value;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--navy);
+}
+
+.contact__value-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.contact__value-link:hover {
+  border-bottom-color: var(--navy);
+}
+
+.contact__value-link svg {
+  color: var(--slate);
+}
+
+/* ── Enquiry form ─────────────────────────────────────────────────────── */
+.enquiry {
+  display: grid;
+  gap: 20px;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+.enquiry__head {
+  margin-bottom: 4px;
+}
+
+.enquiry__head h3 {
+  font-size: 1.375rem;
+}
+
+.enquiry__head p {
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  color: var(--slate);
+}
+
+.enquiry__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.field label,
+.field__label-row {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.field__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.field__count {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  color: var(--slate);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 1rem; /* 16px avoids zoom-on-focus in iOS Safari */
+  line-height: 1.4;
+  color: var(--navy);
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field ::placeholder {
+  color: #8b939a;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--line-hover);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea {
+  border-color: var(--error);
+}
+
+.field__select {
+  position: relative;
+}
+
+.field__select select {
+  appearance: none;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.field__select select:invalid {
+  color: #8b939a;
+}
+
+/* Chevron */
+.field__select::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--navy);
+  border-bottom: 1.5px solid var(--navy);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.field__error {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--error);
+}
+
+.enquiry__privacy {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.enquiry__privacy svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--gold-ink);
+}
+
+.enquiry__submit {
+  width: 100%;
+}
+
+.enquiry__status:empty {
+  display: none;
+}
+
+.enquiry__status p {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.enquiry__status-error {
+  color: var(--error);
+}
+
+.enquiry__status-ok {
+  display: flex;
+  gap: 10px;
+  color: var(--navy);
+}
+
+.enquiry__status-ok svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--gold-ink);
+}
+
+.enquiry__status-ok a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 959px) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact__form {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 539px) {
+  .contact__actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .enquiry__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

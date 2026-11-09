@@ -1,0 +1,94 @@
+.why__head {
+  max-width: 620px;
+}
+
+.why__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: clamp(56px, 7vw, 88px);
+}
+
+.why__item {
+  position: relative;
+  padding: 36px 40px 8px;
+  border-top: 1px solid var(--line-on-dark);
+}
+
+.why__item:first-child {
+  padding-left: 0;
+}
+
+.why__item:last-child {
+  padding-right: 0;
+}
+
+/* A short gold segment marks the start of each column's rule. */
+.why__item::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 40px;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.why__item:first-child::before {
+  left: 0;
+}
+
+.why__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 2rem + 1.4vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--gold);
+}
+
+.why__title {
+  margin-top: 28px;
+  font-size: clamp(1.25rem, 1.15rem + 0.35vw, 1.4375rem);
+}
+
+.why__text {
+  max-width: 22em;
+  margin-top: 12px;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 899px) {
+  .why__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .why__item,
+  .why__item:first-child,
+  .why__item:last-child {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: 20px;
+    padding: 28px 0;
+  }
+
+  .why__item::before,
+  .why__item:first-child::before {
+    left: 0;
+  }
+
+  .why__num {
+    grid-row: span 2;
+    font-size: 2.25rem;
+  }
+
+  .why__title {
+    margin-top: 0;
+  }
+
+  .why__text {
+    margin-top: 6px;
+  }
+}

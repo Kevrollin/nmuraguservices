@@ -1,0 +1,144 @@
+.coverage__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.coverage__lead {
+  max-width: 30em;
+  margin-top: 20px;
+}
+
+.coverage__list {
+  margin-top: 40px;
+  border-top: 1.5px solid var(--navy);
+}
+
+.coverage__item {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.coverage__icon {
+  width: 18px;
+  height: 18px;
+  color: var(--slate);
+}
+
+.coverage__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--navy);
+}
+
+.coverage__meta {
+  font-size: 0.875rem;
+  color: var(--slate);
+  text-align: right;
+}
+
+.coverage__item.is-base .coverage__icon {
+  color: var(--gold);
+}
+
+.coverage__item.is-base .coverage__meta {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--gold-tint);
+  color: var(--gold-ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Diagram panel */
+.coverage__panel {
+  padding: clamp(20px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+.reach {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 372;
+}
+
+.reach text {
+  font-family: var(--font-display);
+}
+
+.coverage__caption {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-xs);
+  color: var(--slate);
+}
+
+/* Spokes draw in once the panel is revealed. */
+.reach__spoke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.reveal-pending .reach__spoke {
+  stroke-dashoffset: 1;
+}
+
+.reveal-in .reach__spoke {
+  transition: stroke-dashoffset 1.1s var(--ease) 0.35s;
+}
+
+@media (max-width: 959px) {
+  .coverage__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coverage__panel {
+    max-width: 600px;
+  }
+}
+
+/* On phones the diagram renders at about 60% scale, so its labels are
+   enlarged (CSS px are SVG user units here) and the county lines, already
+   listed beside the diagram, are dropped. */
+@media (max-width: 599px) {
+  .coverage__panel {
+    padding: 12px 12px 18px;
+  }
+
+  .coverage__caption {
+    margin-inline: 8px;
+  }
+
+  .reach .reach__name {
+    font-size: 20px;
+    transform: translateY(5px);
+  }
+
+  .reach .reach__county {
+    display: none;
+  }
+
+  .reach .reach__base {
+    font-size: 21px;
+  }
+
+  .reach .reach__base-tag {
+    font-size: 13.5px;
+    transform: translateY(4px);
+  }
+
+  .reach .reach__ring {
+    font-size: 15px;
+  }
+}

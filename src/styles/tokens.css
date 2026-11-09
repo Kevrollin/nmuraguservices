@@ -1,0 +1,58 @@
+/* Design tokens. Navy and gold are sampled from the Muragu & Co. CPA-K logo
+   (the brief's #1D2C3B / #B89B68 predate it); every other colour is a tint of
+   the palette. SVG artwork reads the same values from src/styles/palette.ts. */
+:root {
+  /* Brand palette */
+  --navy: #00204e;
+  --paper: #f7f6f1;
+  --gold: #cd8c00;
+  --slate: #68717a;
+  --white: #ffffff;
+
+  /* Derived tones */
+  --navy-hover: #0b3266;
+  --paper-deep: #efede5; /* quiet panels on the paper background */
+  --gold-ink: #8a5e00; /* gold dark enough for small text on light backgrounds (5:1) */
+  --gold-tint: rgba(205, 140, 0, 0.16);
+  --focus-ring: rgba(205, 140, 0, 0.35);
+  --text: #2a3a52; /* body copy on light backgrounds */
+  --text-on-dark: rgba(247, 246, 241, 0.76);
+  --line: rgba(0, 32, 78, 0.12);
+  --line-strong: rgba(0, 32, 78, 0.24);
+  --line-hover: rgba(0, 32, 78, 0.42);
+  --line-on-dark: rgba(247, 246, 241, 0.14);
+  --error: #a03a2c;
+
+  /* Type */
+  --font-display: 'Manrope Variable', 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: 'DM Sans Variable', 'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --fs-h1: clamp(2.5rem, 1.55rem + 3.1vw, 4.125rem);
+  --fs-h2: clamp(2rem, 1.5rem + 1.55vw, 2.875rem);
+  --fs-h3: clamp(1.1875rem, 1.1rem + 0.3vw, 1.3125rem);
+  --fs-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-xs: 0.8125rem;
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(20px, 4.5vw, 48px);
+  --section-y: clamp(72px, 8vw, 112px);
+  --header-h: 72px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.7, 0.2, 1);
+  --dur: 0.22s;
+}
+
+@media (max-width: 959px) {
+  :root {
+    --header-h: 64px;
+  }
+}
